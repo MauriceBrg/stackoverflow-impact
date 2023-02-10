@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import '@stackoverflow/stacks/dist/css/stacks.min.css'
+import '@stackoverflow/stacks/dist/js/stacks.min.js'
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
