@@ -44,7 +44,7 @@ export const UserProfile = (props: { userInfo: StackOverflowUserInfo | null }) =
                                 Reputation: {user.reputation}
                             </li>
                             <li>
-                                Reputation Change in the last year: {user.reputationChangeYear}
+                                Reputation this year: {user.reputationChangeYear}
                             </li>
                         </ul>
                     </div>
