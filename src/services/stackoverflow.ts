@@ -12,8 +12,6 @@ interface StackOverflowListResponse {
 
 export async function getUserInfo(userId: number): Promise<StackOverflowUserInfo> {
 
-    // Don't hammer the API
-
     // return {
     //     userId: 6485881,
     //     displayName: "Maurice",
@@ -65,6 +63,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/74346013/",
     //         questionScore: 0,
     //         questionTitle: "How to order dynamic frame data?",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 74086371,
@@ -75,6 +74,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/74086155/",
     //         questionScore: 0,
     //         questionTitle: "How to tell when Lambdas complete processing of all messages in SQS",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 72711849,
@@ -85,6 +85,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/72710892/",
     //         questionScore: 0,
     //         questionTitle: "Where do I put initialisation code for lambda (only executed once on cold start)?",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 72560952,
@@ -95,6 +96,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/72557982/",
     //         questionScore: 0,
     //         questionTitle: "AWS SecretManager Read and Write concurrency",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 72414485,
@@ -105,6 +107,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/72412078/",
     //         questionScore: 2,
     //         questionTitle: "How to upload a zip to S3 with CDK",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 72413535,
@@ -115,6 +118,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/72412795/",
     //         questionScore: 1,
     //         questionTitle: "Using SQS as EventSource for Lambda in private VPC - do I need SQS VPC Endpoints?",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 72292009,
@@ -125,6 +129,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/72291892/",
     //         questionScore: 2,
     //         questionTitle: "How do I get the tasks running as part of an ECS service?",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 72225671,
@@ -135,6 +140,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/72225406/",
     //         questionScore: 1,
     //         questionTitle: "How can an S3 event trigger a Lambda Function in a VPC?",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 72025058,
@@ -145,6 +151,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/72021590/",
     //         questionScore: 2,
     //         questionTitle: "Problems to query last entry in DynamoDB - Always endup with NULL",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 71629915,
@@ -155,6 +162,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/71625298/",
     //         questionScore: 0,
     //         questionTitle: "Which AWS account is responsible for cross-account SDK API limits?",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 71514923,
@@ -165,6 +173,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/71514398/",
     //         questionScore: 0,
     //         questionTitle: "Send a lot of SQS messages in a lambda without getting timed out",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 71512357,
@@ -175,6 +184,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/71511475/",
     //         questionScore: 0,
     //         questionTitle: "share db session across multiple lambda invocations using Mangum",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 71014511,
@@ -185,6 +195,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/71014452/",
     //         questionScore: 1,
     //         questionTitle: "How many times do I need to run cdk bookstrap?",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 70737534,
@@ -195,6 +206,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/70737422/",
     //         questionScore: 0,
     //         questionTitle: "AWS Lambda costs at resource level granularity",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 70730526,
@@ -205,6 +217,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/70730423/",
     //         questionScore: 0,
     //         questionTitle: "Prevent duplicate DynamoDB transaction",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     //     {
     //         answerId: 70621561,
@@ -215,10 +228,9 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //         questionLink: "https://stackoverflow.com/questions/70620897/",
     //         questionScore: -1,
     //         questionTitle: "Creating a method to power on or off RDS Clusters",
+    //         excerpt: "Lorem ipsum, some test that is real.",
     //     },
     // ]
-
-    // Build search URL
 
     const searchTerm = encodeURIComponent(`[amazon-*] [aws-*] is:answer user:${userId} created:1y`)
     const url = `${API_BASE_URL}search/excerpts?site=${SITE_NAME}&q=${searchTerm}&pagesize=100`
@@ -246,6 +258,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
             answerLink: `https://stackoverflow.com/a/${item.answer_id}/`,
             answerScore: item.score,
             isAccepted: item.is_accepted,
+            excerpt: item.excerpt,
 
             questionId: item.question_id,
             questionLink: `https://stackoverflow.com/questions/${item.question_id}/`,

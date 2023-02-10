@@ -13,6 +13,8 @@ export interface StackOverflowAnswerSummary {
     answerLink: string
     isAccepted: boolean
 
+    excerpt: string
+
     questionId: number
     questionScore: number
     questionLink: string
