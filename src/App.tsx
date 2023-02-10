@@ -1,11 +1,12 @@
 import { FormEvent, useEffect, useState } from 'react';
 import './App.css';
-import { getUserInfo } from './services/stackoverflow';
+import { getAwsAnswerSummaries, getUserInfo } from './services/stackoverflow';
 
-import { StackOverflowUserInfo } from './entities/stackoverflow';
+import { StackOverflowAnswerSummary, StackOverflowUserInfo } from './entities/stackoverflow';
 import { UserProfile } from './components/userProfile';
 import { TopNavigation } from './components/topNavigation';
 import { Disclaimer } from './components/disclaimer';
+import { AnswerList } from './components/answers';
 
 const DEFAULT_USER_ID = 6485881 // Maurice
 
@@ -15,10 +16,14 @@ function App() {
   const [stackOverflowUserId, setStackOverflowUserId] = useState<number>(DEFAULT_USER_ID)
 
   const [stackOverflowUserInfo, setStackOverflowUserInfo] = useState<StackOverflowUserInfo | null>(null)
+  const [stackOverflowAnswerSummaries, setStackOverflowAnswerSummaries] = useState<StackOverflowAnswerSummary[]>([])
 
   useEffect(
     () => {
       getUserInfo(stackOverflowUserId).then(setStackOverflowUserInfo)
+      getAwsAnswerSummaries(stackOverflowUserId).then((summaries) => {
+        setStackOverflowAnswerSummaries(summaries)
+      })
     }, [stackOverflowUserId]
   )
 
@@ -52,6 +57,9 @@ function App() {
               <Disclaimer></Disclaimer>
             </div>
 
+          </div>
+          <div className=''>
+            <AnswerList answerSummaries={stackOverflowAnswerSummaries}></AnswerList>
           </div>
 
         </div>

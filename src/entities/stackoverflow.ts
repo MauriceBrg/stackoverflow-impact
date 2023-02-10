@@ -6,3 +6,15 @@ export interface StackOverflowUserInfo {
     reputationChangeYear: number
     reputation: number
 }
+
+export interface StackOverflowAnswerSummary {
+    answerId: number
+    answerScore: number
+    answerLink: string
+    isAccepted: boolean
+
+    questionId: number
+    questionScore: number
+    questionLink: string
+    questionTitle: string
+}

@@ -3,7 +3,7 @@ import { FormEvent } from "react"
 export const TopNavigation = (props: { searchInputHandler(event: FormEvent<HTMLInputElement>): void }) => {
     return <header className='s-topbar'>
         <div className='s-topbar--container'>
-            <span className='s-topbar--logo fs-title'>AWS @ StackOverflow | Community Impact</span>
+            <span className='s-topbar--logo fs-body3'>AWS @ StackOverflow | Community Impact</span>
             <form className='s-topbar--searchbar' autoComplete='off'>
                 <div className='s-topbar--searchbar--input-group wmx50'>
                     <input
