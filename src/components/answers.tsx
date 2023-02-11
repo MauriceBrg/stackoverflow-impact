@@ -1,4 +1,4 @@
-import { StackOverflowAnswerSummary } from "../entities/stackoverflow"
+import { StackOverflowAnswerStatistics, StackOverflowAnswerSummary } from "../entities/stackoverflow"
 
 const AnswerListHeader = () => {
     return <div>
@@ -40,6 +40,51 @@ const AnswerItem = (props: { answerSummary: StackOverflowAnswerSummary }) => {
                 </p>
             </div>
         </div>)
+}
+
+export const AnswerStats = (props: { answerStats: StackOverflowAnswerStatistics | null }) => {
+
+    const stats = props.answerStats
+
+    if (stats == null) {
+        return <span>Waiting for answer data to compile stats.</span>
+    }
+
+    return (<div>
+        <div className="s-card">
+            <div className="d-flex fd-column h100">
+                <h1 className="flex--item fs-category fs-fine fc-black-350">Answer Statistics</h1>
+                <div className="flex--item fl-grow1">
+                    <div className="d-flex fw-wrap h100 flex__fl-equal g16 s-anchors s-anchors__muted">
+                        <div className="flex--item">
+                            <div className="fs-body3 fc-dark">{stats.numberOfAnswers}</div>
+                            <div className="fs-caption fc-light ws-nowrap">answers</div>
+                        </div>
+                        <div className="flex--item">
+                            <div className="fs-body3 fc-dark">{stats.totalScore}</div>
+                            <div className="fs-caption fc-light ws-nowrap">total score</div>
+                        </div>
+                        <div className="flex--item">
+                            <div className="fs-body3 fc-dark">{stats.totalViews}</div>
+                            <div className="fs-caption fc-light ws-nowrap">total views</div>
+                        </div>
+                        <div className="flex--item">
+                            <div className="fs-body3 fc-dark">{stats.maxScore}</div>
+                            <div className="fs-caption fc-light ws-nowrap">max score</div>
+                        </div>
+                        <div className="flex--item">
+                            <div className="fs-body3 fc-dark">{Math.round((stats.averageScore + Number.EPSILON) * 100) / 100}</div>
+                            <div className="fs-caption fc-light ws-nowrap">mean score</div>
+                        </div>
+                        <div className="flex--item">
+                            <div className="fs-body3 fc-dark">{stats.minScore}</div>
+                            <div className="fs-caption fc-light ws-nowrap">min score</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>)
 }
 
 export const AnswerList = (props: { answerSummaries: StackOverflowAnswerSummary[] }) => {

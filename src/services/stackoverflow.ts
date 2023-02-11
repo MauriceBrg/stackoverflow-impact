@@ -232,7 +232,7 @@ export async function getAwsAnswerSummaries(userId: number): Promise<StackOverfl
     //     },
     // ]
 
-    const searchTerm = encodeURIComponent(`[amazon-*] [aws-*] is:answer user:${userId} created:1y`)
+    const searchTerm = encodeURIComponent(`[amazon-*] [aws-*] is:answer user:${userId} created:1y..`)
     const url = `${API_BASE_URL}search/excerpts?site=${SITE_NAME}&q=${searchTerm}&pagesize=100`
 
     // "https://api.stackexchange.com/2.3/search/excerpts?site=stackoverflow&q=%5Bamazon-*%5D%20%5Baws-*%5D%20is%3Aanswer%20user%3A6485881%20created%3A1y&pagesize=100"

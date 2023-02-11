@@ -2,11 +2,12 @@ import { FormEvent, useEffect, useState } from 'react';
 import './App.css';
 import { getAwsAnswerSummaries, getUserInfo } from './services/stackoverflow';
 
-import { StackOverflowAnswerSummary, StackOverflowUserInfo } from './entities/stackoverflow';
+import { StackOverflowAnswerStatistics, StackOverflowAnswerSummary, StackOverflowUserInfo } from './entities/stackoverflow';
 import { UserProfile } from './components/userProfile';
 import { TopNavigation } from './components/topNavigation';
 import { Disclaimer } from './components/disclaimer';
-import { AnswerList } from './components/answers';
+import { AnswerList, AnswerStats } from './components/answers';
+import { computeAnswerStatistics } from './lib/stats';
 
 const DEFAULT_USER_ID = 6485881 // Maurice
 
@@ -17,6 +18,7 @@ function App() {
 
   const [stackOverflowUserInfo, setStackOverflowUserInfo] = useState<StackOverflowUserInfo | null>(null)
   const [stackOverflowAnswerSummaries, setStackOverflowAnswerSummaries] = useState<StackOverflowAnswerSummary[]>([])
+  const [stackOverflowAnswerStats, setStackOverflowAnswerStats] = useState<StackOverflowAnswerStatistics | null>(null)
 
   useEffect(
     () => {
@@ -31,6 +33,15 @@ function App() {
     () => {
       console.log(stackOverflowUserId)
     }, [stackOverflowUserId]
+  )
+
+  useEffect(
+    () => {
+      // Compute the answer statistics
+      if (stackOverflowAnswerSummaries.length > 0) {
+        setStackOverflowAnswerStats(computeAnswerStatistics(stackOverflowAnswerSummaries))
+      }
+    }, [stackOverflowAnswerSummaries]
   )
 
   function searchInputHandler(event: FormEvent<HTMLInputElement>) {
@@ -58,7 +69,8 @@ function App() {
             </div>
 
           </div>
-          <div className=''>
+          <div className='d-grid g16'>
+            <AnswerStats answerStats={stackOverflowAnswerStats} ></AnswerStats>
             <AnswerList answerSummaries={stackOverflowAnswerSummaries}></AnswerList>
           </div>
 

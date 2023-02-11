@@ -19,4 +19,14 @@ export interface StackOverflowAnswerSummary {
     questionScore: number
     questionLink: string
     questionTitle: string
+    questionViews?: number
+}
+
+export interface StackOverflowAnswerStatistics {
+    numberOfAnswers: number
+    minScore: number
+    maxScore: number
+    totalScore: number
+    averageScore: number
+    totalViews: number
 }
